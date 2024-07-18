@@ -1,14 +1,15 @@
-﻿@model IEnumerable<LanchesSaq.Models.Lanche>
+﻿@model LancheListViewModel
 
 <div>
-    <h2>Todos os lanches</h2>
+    <h2>@Model.CategoriaAtual</h2>
 </div>
 
-@foreach(var lanche in Model)
+
+<div class="container">
+<div class="row">
+@foreach(var lanche in Model.Lanches)
 {
-    <div>
-        <h4>@lanche.Nome</h4>
-        <p><img src="@lanche.ImagemUrl" /></p>
-        <h3>@lanche.Preco.ToString("c")</h3>
-    </div>
+    <partial name="_LanchesResumo" for="@lanche"></partial>
 }
+</div>
+</div>
